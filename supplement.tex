@@ -1,0 +1,339 @@
+
+\documentclass[9pt,onecolumn,twoside,lineno]{pnas-new}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{rotating}
+%\usepackage{adjustbox}
+%\usepackage[graphicx]{realboxes}
+
+
+\begin{document}
+
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \affiliation for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%            addressline={}, 
+%%            city={},
+%%            postcode={}, 
+%%            state={},
+%%            country={}}
+%% \fntext[label3]{}
+
+\title{Supplementary material:\\
+Protection provided by covid-19 vaccines and previous infection against the Omicron variant}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author{}
+
+%\affiliation{organization={},%Department and Organization
+%            addressline={}, 
+%            city={},
+%            postcode={}, 
+%            state={},
+%            country={}}
+
+\maketitle
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+%{\bf Data Sharing} \\[1ex]
+%The R code for conducting our analyses, together with a sample input data set and complete documentation is (temporarily) available in the following link: \\ \url{github.com/aboubek/index_okresu}
+
+%\newpage
+%\vspace{5ex}
+
+\section*{Dataset}
+
+In total, our dataset contains 8,282,080 records of vaccinated and/or SARS-CoV-2 positive persons, out of which 10,937 were excluded for either inconsistency or the lack of valid sex and/or age information. Additional 97,855 records were excluded as corresponding individuals died before 7. December 2021 which we set as the start date (34,145 were recorded to die from covid-19, 63,740 from other reasons; see Table \ref{description1}). 
+As the source dataset consists only of those who were tested positive and/or were vaccinated, we added subjects who were  neither tested positive nor vaccinated. In particular, we completed each sex-age category to the numbers reported by the Czech Statistical Office by December 31, 2020 -- 10,701,777 inhabitants; consequently, our sample truly reflected the sex and age structure of the whole population, containing all the positive and/or vaccinated individuals. We neglected births and deaths of the added persons. Moreover, not all non-covid deaths were recorded as they are reported with a delay.
+
+\section*{Methods: a Cox regression with time-varying covariates}
+
+For the analyses of vaccine effectiveness and immunity protection, made separately for both the Omicron and Delta variant, we use the Cox proportional hazards model with time-varying covariates. 
+
+The input of the model consists of one or more records for each subject. Each record corresponds to a time interval from time {\tt T1} to {\tt T2}, in which the covariates are constant and in the interior of which none of the outcomes happened. Each record contains indicators of outcomes {\tt VariantInf, VariantHosp, VariantOxygen, VariantICU, DeadByCov, DeadByOther}, happening at $T2$ and the value of the covariates, valid in $[T1,T2)$.
+Undiscriminated infections and infections by other variants lead to withdrawal from the study (right censoring). 
+Deaths of covid ({\tt DeadByCov}) or of other reasons ({\tt DeadByOther}) lead to right censoring at the time of the event as well. Fixed (non-time-dependent) covariates include sex ({\tt Sex}) and age category ({\tt AgeGr}). 
+
+Time is measured in days and we take the day before our study period (Dec 7th, 2021) as time zero. By default, for each subject, the intervals cover the entire period from 7th. December 2021 to 13. February 2022. The period is shortened (censoring takes place) if either:
+\begin{itemize} 
+\item The subject is infected (except for the Infection analysis)
+\item The subject is infected by some other variant or the infection is not discriminated (in the Infection analysis)
+\item The subject is reported to die
+\item The subject is reported to obtain booster by Astra or Janssen
+\item The subject gets a vaccine (only in the reinfection analysis)
+\end{itemize}
+
+
+\subsection*{Combined Immunity}
+In these analyses,
+we let each individual to go through the several ``immunity states'' encoded into {\tt Immunity} covariate. The outcomes (events) are either (a confirmed) infection ({\tt VariantInf}, may be repeated), hospitalization ({\tt VariantHosp}), oxygen therapy ({\tt VariantOxygen}) or ICU admission ({\tt VariantICU}).
+
+The {\tt Immunity} categorical covariate can take the following values:
+\begin{description}
+\item[{\tt \_noimmunity}] meaning that the subject was neither vaccinated nor underwent (comfirmed) infection,
+\item[{\tt {\em X}\_alone}] meaning that the condition $X$ happened,
+\item[{\tt {\em X}\_{\em Y}}] which means that the condition $X$ happened, being followed by condition $Y$ in time. 
+\end{description}
+
+The conditions could be:
+\begin{description}
+\item[{\tt part}] partially vaccinated (from 14 days of the dose application)
+\item[{\tt full2-}] fully vaccinated no earlier than two months ago (from 14 days to $14+61-1=74$ days after the dose application)
+\item[{\tt full2+}] fully vaccinated earlier than two months ago (from 75 days from the application or earlier)
+\item[{\tt boost2-}] booster vaccinated no earlier than two months ago (from 14 days to $74$ days after the dose application)
+\item[{\tt boost2+}] booster vaccinated earlier than tow months ago (from 75 days from the application or earlier)
+\item[{\tt inf6-}] underwent infection no earlier than six months (180 days) ago 
+\item[{\tt inf6+}] underwent infection earlier than six months (180 days) ago. \end{description}
+
+\subsection*{Re-infection Analysis}
+
+When separately estimating the post-infection immunity we consider the infection by the examined variant ({\tt VariantInf}) as the outcome. As the explanatory variable we take the categorical covariate {\tt InfPrior} indicating the delay from the last infection, grouped by four months. The {\tt InfPrior} covariate can take the following values: 
+\begin{description}
+\item[{\tt \_noinf}] no previous infection
+\item[{\tt inf1}] 60--180 days after the last confirmed infection (the re-infection cannot happen during the first 60 days by definition)
+\item[{\tt inf2}] 181--301 days 
+\item[{\tt inf3}] 302--422 days 
+\item[{\tt inf4+}] any later.
+\end{description}
+
+\subsection*{Detailed Analyses}
+
+Here, the outcomes include {\tt VariantInf} (possibly repeated),  {\tt VariantHosp} or {\tt VariantOxygen}. The time-varying covariates include  {\tt VaccStatus} and {\tt InfPrior}.
+The {\tt VaccStatus} is either {\tt \_novacc} (not vaccintaed) or takes the form {\tt \em VSP} where
+\begin{description}
+\item[{\tt \em V}] denotes the vaccine (P-fizer, M-oderna, A-stra, J-anssen),
+\item[{\tt \em S}] denotes the state of vaccination (part - partial, full - full, boost - booster)
+\item[{\tt \em P}] denotes the time distance from the last vaccination
+\begin{description}
+\item[S=part:] 1=first 61 days after the dose takes effect (14 days after application), 2=any later
+\item[S=full:] 1=first 61 days after the dose takes effect (14 days after application), 2=next 61 days, 3=later
+\item[S=boost:] 1=first 61 days after the dose takes effect (7 days after application), 2=later 
+\end{description}
+\end{description}
+
+The {\tt InfPrior} covariate is either: 
+\begin{description}
+\item[{\tt \_noinf}] no previous infection
+\item[{\tt inf1}] 60--180 days after the last confirmed infection (the re-infection cannot happen during the first 60 days by definition)
+\item[{\tt inf2}] 181--301 days 
+\item[{\tt inf3}] 302--422 days 
+\item[{\tt inf4+}] any later.
+\end{description}
+
+\bigskip
+
+Table \ref{tab:anals} summarizes all the analyses we made by means of Cox regression. 
+
+\begin{table}
+\caption{Details on analyses by Cox regression. \vspace{1mm}}
+\centering
+\begin{tabular}{lcl}
+\hline
+Analysis & Outcome & Covariates \\ \hline
+Infections   & VariantInf & 
+Immunity, Sex, AgeGr \\
+Reinfections & VariantInf & InfPrior, Sex, AgeGr \\
+Hospitalizations &  VariantHosp & Immunity, Sex, AgeGr \\
+Oxygen therapy &  VariantOxygen & Immunity, Sex, AgeGr \\
+ICU admission & VariantICU & Immunity, Sex, AgeGr \\
+Detailed hospitalizations &  VariantHosp & VaccStatus, InfPrior, Sex, AgeGr \\
+Detailed oxygen therapy &  VariantOxygen & VaccStatus, InfPrior, Sex, AgeGr \\
+Detailed ICU admission & VariantICU & VaccStatus, InfPrior, Sex, AgeGr \\
+\hline
+\end{tabular}
+\label{tab:anals}
+\end{table}
+
+
+\section*{Methods: a Logistic regression}
+
+In theses analyses, the binary outcomes {\tt Hosp, Oxygen, ICU} corresponding to the discriminated infections are explained by dummy {\tt Variant} taking values either {\tt Omicron} or {\tt Delta}, the value of covariate {\tt Immunity} valid at the time of the infection and constant covariates {\tt AgeGr} anad {\tt Sex}. Table \ref{tab:lrs} summarizes all these analyses.
+
+\begin{table}
+\caption{Details on analyses by Logistic regression. \vspace{1mm}}
+\centering
+\begin{tabular}{lcl}
+\hline
+Analysis & Outcome & Covariates \\ 
+\hline
+Hospitalizations given infection & Hosp & 
+Immunity, Sex, AgeGr \\
+Oxygen given infection & Oxygen & 
+Immunity, Sex, AgeGr \\
+ICU given infection & Oxygen & 
+Immunity, Sex, AgeGr \\
+Oxygen given hospitalization & Oxygen & 
+Immunity, Sex, AgeGr \\
+ICU given hospitalization& Oxygen & 
+Immunity, Sex, AgeGr \\
+\hline
+\end{tabular}
+\label{tab:lrs}
+\end{table}
+
+\section*{Software implementation}
+
+The ({\tt coxph} function from {\tt survival} {\tt R} package) was used for the Cox regression, the ({\tt glm} function from {\tt stats} {\tt R} package) for the Logistic regression. The original software package was used to transform the source data to the input of the packages. The source code with example (unreal) data can be retrieved from \url{https://github.com/bisop-repo/omicronprotection}.
+
+
+\clearpage
+%\newpage
+
+%\noindent
+\section*{Supplementary tables}
+
+% \begin{sidewaystable}[h]
+\begin{sidewaystable}%[h]
+
+%\begin{small}
+\centering
+\caption{Descriptive statistics: population and epidemic characteristics in the Czech Republic; ISID = the Czech National Information System of Infectious Diseases. \vspace{2mm}}
+
+% tp get the following tables, run convertool run with command i
+
+\label{description1}
+\begin{tabular}{c|cc|cc|ccc|cccc}
+\hline
+ & \multicolumn{4}{c|}{Dataset} & \multicolumn{3}{c|}{Population by 07/12/2021} &
+\multicolumn{4}{c}{Events from 07/12/2021} \\ 
+Age & Number & Data & \multicolumn{2}{c|}{Dead by 07/12/2021} & From &  Added & Total & Infec- & Hospi- & Dead & Dead \\ 
+group &  & errors & covid-19 & other & ISID &   &  & ted & talized & covid-19 & other \\ 
+\hline
+0-11&434936&23&6&17&434890&932215&1367105&167628&798&1&3\\
+12-15&357588&14&0&11&357563&98925&456488&109893&175&1&3\\
+16-17&170567&5&2&16&170544&24472&195016&51543&112&0&1\\
+18-24&577030&69&6&94&576861&92631&669492&118759&433&0&13\\
+25-29&466101&50&21&88&465942&154983&620925&87595&479&1&15\\
+30-34&552204&28&48&156&551972&166959&718931&106904&634&5&30\\
+35-39&587595&52&76&224&587243&166067&753310&116199&724&13&39\\
+40-44&713128&48&151&453&712476&180845&893321&130422&799&19&84\\
+45-49&778086&44&298&793&776951&105635&882586&126795&971&38&105\\
+50-54&603655&23&455&1109&602068&89015&691083&81047&1029&67&167\\
+55-59&581568&23&879&1792&578874&90859&669733&63633&1321&141&251\\
+60-64&527736&16&1668&2892&523160&102305&625465&40469&1509&201&427\\
+65-69&594362&21&3310&5374&585657&86761&672418&29413&2374&370&727\\
+70-74&572325&19&5541&8917&557848&63329&621177&21452&2984&586&1160\\
+75-79&418441&15&6670&10490&401266&15935&417201&14150&3165&691&1231\\
+80+&445102&9&15014&31314&398765&48761&447526&14703&5983&1640&3304\\
+\hline
+Total&8380424&459&34145&63740&8282080&2419697&10701777&1280605&23490&3774&7560\\\hline
+Errors & No age & 9929 & No sex & 481s \\
+\hline
+\end{tabular}
+%\end{small}
+\end{sidewaystable}
+
+
+\begin{sidewaystable}[h]
+%\begin{table}[h]
+\centering
+\caption{Descriptive statistics: vaccine distribution among different age groups until November 20, 2021.  \vspace{2mm}}
+\label{description2}
+%\begin{small}
+\begin{tabular}{c|ccccc|ccccc}
+\hline
+Age & \multicolumn{5}{c|}{Completed vaccination} & 
+\multicolumn{5}{c}{Booster doses} \\
+group & Comirnaty & Spikevax & Vaxzevria & Janssen & Total
+& Comirnaty & Spikevax & Vaxzevria & Janssen & Total \\ \hline
+0-11&38353&55&3&11&38422&175&2&0&0&177\\
+12-15&195722&4167&2&2&199893&16844&143&0&0&16987\\
+16-17&120102&3052&33&341&123528&18058&689&0&0&18747\\
+18-24&394263&26110&2348&44131&466852&105841&13953&2&12&119808\\
+25-29&298948&25096&3547&36148&363739&93385&15294&4&10&108693\\
+30-34&364532&28912&4877&37250&435571&131736&21530&3&10&153279\\
+35-39&395946&31868&7156&37489&472459&165876&25716&10&27&191629\\
+40-44&503173&40455&12059&41404&597091&249310&36474&17&33&285834\\
+45-49&564756&44639&16643&43925&669963&321021&44898&17&40&365976\\
+50-54&440085&37823&17806&34186&529900&274139&39573&19&41&313772\\
+55-59&426529&37494&24522&31785&520330&293838&41891&21&40&335790\\
+60-64&388409&36335&33399&28237&486380&307892&42194&23&47&350156\\
+65-69&426983&45314&60188&27974&560459&381356&54634&39&97&436126\\
+70-74&359947&58087&100680&20549&539263&379045&63896&59&128&443128\\
+75-79&246125&46985&83302&12442&388854&276509&48422&53&106&325090\\
+80+&264910&40559&67123&9655&382247&276295&42481&47&108&318931\\
+\hline
+Total&5428783&506951&433688&405529&6774951&3291320&491790&314&699&3784123\\
+\hline
+\end{tabular}
+%\end{small}
+\end{sidewaystable}
+
+
+\end{document}
+
+For better understanding, here we show a complete data record of four sample subjects (A0,A1,A2,A3) determined to the infection analysis. All of them are recorded from T=0 
+
+A0 is not vaccinated and gets infected at the last day of the study.
+A1 has not been infected before, but gets infected (Day 140) and dies of covid (Day 150) before being vaccinated. A2 became first-dose vaccinated with Comirnaty on day 114, was infected between the first and second dose (day 142), got the second dose (day 220) and survives until the end of the study. A3 has been infected 20 days before beginning of the study, gets vaccinated by Janssen (Day 150) and is not infected until the end. 
+
+The input of {\tt coxph} routine is displayed in Table \ref{tab:input}. Note that there is typically more records then events as each follow-up covariate has to have its own interval.
+
+\begin{table}
+\caption{Sample input to Cox regression. \vspace{3mm}}
+\label{tab:input}
+\centering
+\begin{tabular}{cccccccclcc}
+\hline
+Sub- & T1 & T2 & Inf- & Dead- & Dead- & Inf-& Vacc-& Age- & Sex \\
+ject & & & ected & Covid & Other & Prior & Status & Gr & \\
+\hline
+A0 & 0 & 313 & 1 & 0& 0 & \_none & \_unvacc & 40-44 & F\\
+A0 & 313 & 314 &0 & 0& 0&1 & \_unvacc & 40-44 & F\\
+A1 & 0 & 140 & 1 &0 & 0 &\_none & \_unvacc & 75-79 & F\\
+A1 & 140 & 150 & 0 & 1 & 0 & \_none &  \_unvacc & 75-79 & F\\
+A2 & 0 & 128(=114+14) & 0& 0 & 0   & \_none &  \_unvacc  & 45-49 & M\\
+A2 & 128 & 142 & 1 & 0 & 0 & \_none & P\_first1& 45-49 & M\\
+A2 & 142 & 189(=128+61) & 0 & 0 & 0 & 1 & P\_first1& 45-49 & M\\
+A2 & 189 & 220 & 0 & 0 &0 & 1 & P\_first2plus& 45-49 & M\\
+A2 & 220 & 233(=142+91)  & 0 & 0& 0 & 1 & P1 & 45-49 & M\\
+A2 & 233 & 281(=220+61) & 0 & 0 & 0 & 2 & P1 & 45-49 & M\\
+A2 & 281 & 314 & 0 & 0 & 0 & 2 & P2 & 45-49 & M\\
+A3 & 0 & 71(=0-20+91) & 0 &0 &0 & 1 & \_unvacc & 40-44 & F\\
+A3 & 71 & 162(=71+91) & 0 &0 &0 & 2 & \_unvacc & 40-44 & F\\
+A3 & 162 & 164(=150+14) & 0 &0 &0 & 3 & \_unvacc & 40-44 & F\\
+A3 & 164 & 225(=164+61) & 0 & 0& 0 & 3 & J1 & 40-44 & F\\
+%A3 & 225 & 255(=164+91) & 0 & 0& 0 & 3 & J2 & 40-44 & F\\
+%A3 & 255 & 286(=225+61) & 0 & 0& 0 & 3 & J2 & 40-44 & F\\
+%A3 & 286 & 314  & 0 & 0& 0 & 3 & J3 & 40-44 & F\\
+A3 & 225 & 253(=162+91) & 0 & 0& 0 & 3 & J2 & 40-44 & F\\
+A3 & 253 & 286(=225+61) & 0 & 0& 0 & rest & J2 & 40-44 & F\\
+A3 & 286 & 314  & 0 & 0& 0 & rest & J3 & 40-44 & F\\
+\hline
+\end{tabular}
+\end{table}

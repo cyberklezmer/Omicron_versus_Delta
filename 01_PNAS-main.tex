@@ -19,9 +19,9 @@
 \author[e,f]{Tom\'a\v{s} Pavl\'{\i}k}
 \author[e,f]{Ji\v{r}\'{\i} Jarkovsk\'y}
 \author[a,g]{Jakub Weiner}
-\author[h]{Jan Trnka}
-\author[i]{Lenka P\v{r}ibylov\'a}
-\author[j,k]{Tamara Barusov\'{a}}
+\author[h]{Lenka P\v{r}ibylov\'a}
+\author[i,j]{Tamara Barusov\'{a}}
+\author[a,k]{Jan Trnka}
 
 \affil[a]{Centre for Modelling of Biological and Social Processes, Na b\v{r}ehu 497/15, 19000 Praha 9, Czech Republic}
 \affil[b]{Czech Academy of Sciences, Institute of Information Theory and Automation, Pod Vod\'arenskou v\v{e}\v{z}\'i 4, 18200 Praha 8, Czech Republic}
@@ -30,10 +30,10 @@
 \affil[e]{Institute of Biostatistics and Analyses, Faculty of Medicine, Masaryk University, Kamenice 126/3, 62500 Brno, Czech Republic}
 \affil[f]{Institute of Health Information and Statistics of the Czech Republic, Palack\'eho n\'am\v{e}st\'i 4, 12801 Praha 2, Czech Republic}
 \affil[g]{Siesta Labs, Konopi\v{s}\v{t}sk\'a 739/16, 10000 Praha 10, Czech Republic}
-\affil[h]{Department of Biochemistry, Cell and Molecular Biology, Third Faculty of Medicine, Charles University, Ruská 87, 10000 Praha 10, Czech Republic}
-\affil[i]{Department of Mathematics and Statistics, Faculty of Science, Masaryk University, 61137 Kotl\'a\v{r}sk\'a 2, Brno, Czech Republic}
-\affil[j]{First Faculty of Medicine, Charles University, Kate\v{r}inská 32, 12108 Praha 2, Czech Republic}
-\affil[k]{Czech Academy of Sciences, Institute of Computer Science, Department of Statistical Modelling, Pod Vodárenskou věží 2, 18207 Praha 8, Czech Republic}
+\affil[h]{Department of Mathematics and Statistics, Faculty of Science, Masaryk University, 61137 Kotl\'a\v{r}sk\'a 2, Brno, Czech Republic}
+\affil[i]{First Faculty of Medicine, Charles University, Kate\v{r}inská 32, 12108 Praha 2, Czech Republic}
+\affil[j]{Czech Academy of Sciences, Institute of Computer Science, Department of Statistical Modelling, Pod Vodárenskou věží 2, 18207 Praha 8, Czech Republic}
+\affil[k]{Department of Biochemistry, Cell and Molecular Biology, Third Faculty of Medicine, Charles University, Ruská 87, 10000 Praha 10, Czech Republic}
 
 % Please give the surname of the lead author for the running footer
 \leadauthor{\v{S}m\'id} 
@@ -44,7 +44,7 @@
 }
 
 % Please include corresponding author, author contribution and author declaration information
-\authorcontributions{ LB, M\v{S}, and LP conceived this study. JJ, OM, JW, MZ, and TB prepared and checked the data, TP provided the methodological expertise, JW and M\v{S} conducted the analyses. LB and JT wrote the first draft of the manuscript. All authors contributed to writing the manuscript and interpreting the results. All authors approved the final version and had final responsibility for the decision to submit for publication.}
+\authorcontributions{ LB, M\v{S}, JT and LP conceived this study. JJ, OM, JW, and TB prepared and checked the data, TP provided the methodological expertise, JW and M\v{S} conducted the analyses. LB and JT wrote the first draft of the manuscript. All authors contributed to writing the manuscript and interpreting the results. All authors approved the final version and had final responsibility for the decision to submit for publication.}
 \authordeclaration{All authors declare no competing interests.}
 %\equalauthors{\textsuperscript{1}A.O.(Author One) contributed equally to this work with A.T. (Author Two) (remove if not applicable).}
 \correspondingauthor{\textsuperscript{1}To whom correspondence should be addressed. E-mail: smid@utia.cas.cz}
@@ -55,11 +55,14 @@
 \begin{abstract}
 The Omicron variant of the SARS-CoV-2 virus carries mutations, which enable it to evade immunity conferred by vaccines and previous infections.
 We used a Cox proportional hazards model and a logistic regression model on individual-level data on all laboratory-confirmed SARS-CoV-2 infections in the Czech Republic to estimate the relative risk of infection, hospitalization, including severe states, for Delta and Omicron variants, adjusting for sex, age, previous infection, vaccine type and vaccination status.
-A recent (<2 months) two-dose vaccination reached VE 43\% (95\% CI: 42-44) against infection by Omicron compared to 73\% (95\% CI: 72-75) against Delta. A recent booster increased VE to 55\% (95\% CI: 55-56) against Omicron infection compared to 90\% (95\% CI: 90-91) for Delta. The VE against Omicron hospitalization of a recent two-dose vaccination was 45\% (95\% CI: 30-58), with a recent booster 87\% (95\% CI: 84-89). The VE against the need for oxygen therapy due to Omicron was 57\% (95\% CI: 33-72) for recent vaccination, 90\% (95\% CI: 87-92) for a recent booster. Post-infection protection against Omicron hospitalization declined from 69\% (95\% CI: 68-70) at <6 months to 13\% (95\% CI: 11-14) at >6 months after a previous infection. A recent combination of a previous infection and vaccination was more protective then either alone with a slight benefit from a vaccination preceding an infection. Once infected, the OR for Omicron relative to Delta was 0.36 (95\% CI: 0.34-0.38) for hospitalization, 0.24 (95\% CI: 0.22-0.26) for oxygen therapy, and 0.24 (95\% CI: 0.21-0.28) for ICU admission.
+A recent (<2 months) two-dose vaccination reached VE 43\% (95\% CI: 42-44) against infection by Omicron compared to 73\% (95\% CI: 72-74) against Delta. A recent booster increased VE to 56\% (95\% CI: 55-56) against Omicron infection compared to 90\% (95\% CI: 90-91) for Delta. The VE against Omicron hospitalization of a recent two-dose vaccination was 45\% (95\% CI: 29-57), with a recent booster 87\% (95\% CI: 84-88). The VE against the need for oxygen therapy due to Omicron was 57\% (95\% CI: 32-72) for recent vaccination, 90\% (95\% CI: 87-92) for a recent booster. Post-infection protection against Omicron hospitalization declined from 68\% (95\% CI: 68-69) at <6 months to 13\% (95\% CI: 11-14) at >6 months after a previous infection. A recent combination of a previous infection and vaccination was more protective then either alone with a slight benefit from a vaccination preceding an infection. Once infected, the OR for Omicron relative to Delta was 0.36 (95\% CI: 0.34-0.38) for hospitalization, 0.24 (95\% CI: 0.22-0.26) for oxygen therapy, and 0.24 (95\% CI: 0.21-0.28) for ICU admission.
 \end{abstract}
 
 \dates{This manuscript was compiled on \today}
 \doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
+
+\def\nocase{no case}
+
 
 \begin{document}
 
@@ -103,9 +106,9 @@ We examined events during the two month period from December 7, 2021 to February
 \subsection*{Statistical analysis}
 A Cox regression with time-varying covariates was applied to estimate hazard ratios (HRs) for the outcomes of interest separately for each viral variant. In these analyses the infections by the variant other than the examined one and the infections lacking variant assignment were censored at the time of infection. Analogously to \citep{tartof2021effectiveness} we used calendar time instead of time from event occurrence as the time scale. Thus the time course of individual cases was modelled by means of ``switching'' dummy variables, corresponding to the development of the immune status after vaccination or past infection in 61-day periods for vaccination and 121-day periods for the time from the last infection.
 
-The protection provided by vaccine (vaccine effectiveness) or previous infection is calculated by comparing hazards of the vaccinated and/or immunized individuals to those of the  ``control group'' -- those who have not been vaccinated and infected so far and subtracted from 1 using the equation \ref{eq1}:
+The protection provided by vaccine (vaccine effectiveness) or previous infection is calculated by comparing hazards of the vaccinated and/or immunized individuals to those of the  ``control group'' -- those who have not been vaccinated and infected so far and subtracted from 1 using the equation:
 \begin{equation}
-Protection\, (\mbox{VE}) = 1 - \frac{Hazard_{protected}}{Hazard_{unprotected}}
+Protection\, (\mbox{VE}) = 1 -  \frac{\mathrm{Hazard_{protected}}}{\mathrm{Hazard_{unprotected}}}
 \label{eq1}
 \end{equation}
 
@@ -114,7 +117,7 @@ Further we examine the post-infection immunity by estimating hazard ratios of in
 To examine the probabilities of hospitalization, oxygen therapy and ICU admission for an infected individual we use the logistic regression with the event of interest as the outcome and with all infections with an assigned viral variant as the data. By means of the dummy corresponding to the virus variant we compare the probabilities of the outcome for both the variants. Post-infection and post-vaccination status, age and sex are used as control variables. To estimate the amount of protection provided by the vaccination and/or past infection we run the logistic regression separately for infections by the two variants. %(ale nevím, jestli to Luděk nakonec použije)
 
  
-All calculations were performed using the R software (package \verb|survival|). The algorithm used to transform data from the database into the package command inputs was coded in C++. See Supplementary material for details. 
+All calculations were performed using the R software (package \verb|survival|). The algorithm used to transform data from the database into the package command inputs was coded in C++. See Supplementary material 1 for details. 
 
 
 \section*{Results}
@@ -122,7 +125,7 @@ All calculations were performed using the R software (package \verb|survival|). 
 
 \subsection*{Protection against infection}
 
-First we looked at the protection conferred by vaccination or a previous infection against a new infection, since the protection against infection represents the potential to protect others at risk in the population. For vaccination and the Omicron variant the protection reached 43\% (95\% CI 42-44) shortly after completing the full vaccination scheme, falling to 11\% (95\% CI 10-11) after more than two months. This protection increased to 55\% (95\% CI 55-56) shortly after receiving a booster dose, followed by a decline to 20\% (95\% CI 18-22) after more than two months. These numbers strongly contrast with the protection against the Delta variant, which was consistently higher at 73\% (95\% CI 72-75), 57\% (95\% CI 57-58), 90\% (95\% CI 90-91) and 81\% (95\% CI 79-84), respectively. Similar degrees of protection against infection are conferred also by the post-infection immunity: 69\% (95\% CI 68-70) shortly after infection (2-6 months, a positive test during the first two months after an infection is not considered a reinfection by definition) and 13\% (95\% CI 11-14) after six months for Omicron, versus 95\% (95\% CI 94-96) shortly after infection and 83\% (95\% CI 82-84) after six months for Delta (Figure \ref{figIalone}). Based on the past prevalence of viral variants it can be expected that the infections older than 6 months were mostly due to the original Wuhan, D614G and Alpha variants, while the more recent ones were predominantly due to Delta. As we show in the Supplementary material, explicit accounting for the vaccine type Comirnaty (BNT162b2, Pfizer/BioNTech) and Spikevax (mRNA-201273, Moderna) gave values of effectiveness comparable with the analyses of pooled data reported in the main text.   
+First we looked at the protection conferred by vaccination or a previous infection against a new infection, since the protection against infection represents the potential to protect others at risk in the population. For vaccination and the Omicron variant the protection reached 43\% (95\% CI 42-44) shortly after completing the full vaccination scheme, falling to 9\% (95\% CI 8-10) after more than two months. This protection increased to 56\% (95\% CI 55-56) shortly after receiving a booster dose, followed by a decline to 21\% (95\% CI 19-23) after more than two months. These numbers strongly contrast with the protection against the Delta variant, which was consistently higher at 73\% (95\% CI 72-74), 57\% (95\% CI 56-58), 90\% (95\% CI 90-91) and 82\% (95\% CI 79-84), respectively. Similar degrees of protection against infection are conferred also by the post-infection immunity: 68\% (95\% CI 68-69) shortly after infection (2-6 months, a positive test during the first two months after an infection is not considered a reinfection by definition) and 13\% (95\% CI 11-14) after six months for Omicron, versus 95\% (95\% CI 94-96) shortly after infection and 83\% (95\% CI 82-84) after six months for Delta (Figure \ref{figIalone}). Based on the past prevalence of viral variants it can be expected that the infections older than 6 months were mostly due to the original Wuhan, D614G and Alpha variants, while the more recent ones were predominantly due to Delta. As we show in the Supplementary material 2, Sections 11 and 12, explicit accounting for the vaccine type Comirnaty (BNT162b2, Pfizer/BioNTech) and Spikevax (mRNA-201273, Moderna) gave values of effectiveness comparable with the analyses of pooled data reported here in the main text.   
 
 \begin{figure}[h]
 \centering
@@ -131,31 +134,31 @@ First we looked at the protection conferred by vaccination or a previous infecti
 \label{figIalone}
 \end{figure}
 
-We had enough data to examine all the combinations in which a previous infection preceded vaccination. As expected, protection declined with time elapsed from the previous infection or vaccination (Tables \ref{tabIOinteractions} and \ref{tabIDinteractions}). For the Delta variant, any combination provided $\geq 95\%$ protection against infection (Table \ref{tabIDinteractions}). This protection remained quite high also for Omicron when the previous infection was recent, falling to lower values for an older previous infection, but even then the protection was significantly higher than for a vaccination or previous infection alone (Table \ref{tabIOinteractions}). We also analysed cases, where a vaccination preceded a previous infection, and conclude that when the protection is high (against Delta) then the order of events does not matter (see description of Tab. \ref{tabIDinteractions}). However, when protection is lower (against Omicron), the situation when a previous infection followed a vaccination appeared to provide a higher protection than the inverse sequence (see description of Tab. \ref{tabIOinteractions}). The protection provided by Booster 2+/Inf 6- combination was 99\% (95\% CI 99-100) as compared to 82\% (95\% CI 71-88) for Inf 6-/Booster 2+, and protection provided by Full 2+/Inf 6- combination was 90\% (88-91) as compared to 86\% (95\% CI 85-88) for Inf 6-/Full 2+.
+We had enough data to examine all the combinations in which a previous infection preceded vaccination. As expected, protection declined with time elapsed from the previous infection or vaccination (Tables \ref{tabIOinteractions} and \ref{tabIDinteractions}). For the Delta variant, any combination provided $\geq 95\%$ protection against infection (Table \ref{tabIDinteractions}). This protection remained quite high also for Omicron when the previous infection was recent, falling to lower values for an older previous infection, but even then the protection was significantly higher than for a vaccination or previous infection alone (Table \ref{tabIOinteractions}). We also analysed cases, where a vaccination preceded a previous infection, and conclude that when the protection is high (against Delta) then the order of events does not matter (see description of Tab. \ref{tabIDinteractions}). However, when protection is lower (against Omicron), the situation when a previous infection followed a vaccination appeared to provide a higher protection than the inverse sequence (see the caption of Tab. \ref{tabIOinteractions}). The protection provided by Full 2+/Inf 6- combination was 89\% (88-91) as compared to 86\% (95\% CI 85-88) for Inf 6-/Full 2+.
 
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination  {\it against infection} for the {\it Omicron} variant of the SARS-CoV-2 virus.  Infection in recent 6 months is denoted as Inf 6- and older Inf 6+, completed vaccination scheme is denoted Full 2- for completion in recent 2 months and Full 2+ for older completion, analogously for booster. In parentheses, 95\% confidence intervals (CI) are given. The inverse immunisation order had a higher effect: more than 2 months old vaccination followed by infection in recent 6 months had 99\% (99-100\%) protection for booster, and 90\%  (88-91\%) for full vaccination scheme.}
+\begin{table}[!ht]
+\caption{Protection due to various combinations of past infection preceding vaccination  {\it against infection} for the {\it Omicron} variant of the SARS-CoV-2 virus.  Infection in recent 6 months is denoted as Inf 6- and older Inf 6+, completed vaccination scheme is denoted Full 2- for completion in recent 2 months and Full 2+ for older completion, analogously for booster. In parentheses, 95\% confidence intervals (CI) are given. The inverse immunisation order had a higher effect: more than 2 months old full vaccination followed by infection in recent 6 months had 89\% (88-91\%) for full vaccination.}
 \label{tabIOinteractions}
 \centering
 \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
 \hline
 \cellcolor{gray!20}$o$ {\it inf}&\cellcolor{gray!20}Booster 2- & \cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+& \cellcolor{gray!20}Full 2+\\
 \hline
-\cellcolor{gray!20}&93\%&82\%&82\%&86\% \\
- \multirow{-2}{*}{\cellcolor{gray!20}Inf 6-}&(89-95\%)& (75-87\%)&(71-88\%)&(85-88\%)\\
+\cellcolor{gray!20}&92\%&82\%&82\%&86\% \\
+ \multirow{-2}{*}{\cellcolor{gray!20}Inf 6-}&(89-94\%)& (75-87\%)&(72-89\%)&(85-88\%)\\
 \hline
-\cellcolor{gray!20}&73\%&77\%&48\%&46\%\\
- \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(73-74\%)&  (76-78\%) &(44-51\%)&(45-47\%)\\
+\cellcolor{gray!20}&74\%&77\%&48\%&45\%\\
+ \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(73-75\%)&  (76-78\%) &(45-52\%)&(44-46\%)\\
 \hline 
 \end{tabular}
 \end{table}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination {\it against infection} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 96\% (90-98\%) for full vaccination.}
+\begin{table}[!ht]
+\caption{Protection due to various combinations of past infection preceding vaccination {\it against infection} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old full vaccination followed by infection in recent 6 months had protection 96\% (90-98\%) for full vaccination.}
 \label{tabIDinteractions}
 \centering
 \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
@@ -163,23 +166,21 @@ We had enough data to examine all the combinations in which a previous infection
 \cellcolor{gray!20}$\delta$ {\it inf}&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+ &\cellcolor{gray!20}Full 2+\\
 \hline
 \cellcolor{gray!20}&95\%&100\%&100\%&97\%\\
- \multirow{-2}{*}{\cellcolor{gray!20} Inf 6-}&(63-99\%)& (100-100\%)&(100-100\%)&(94-98\%)\\
+ \multirow{-2}{*}{\cellcolor{gray!20} Inf 6-}&(66-99\%)& \nocase&\nocase&(94-98\%)\\
 \hline
-\cellcolor{gray!20}&98\%&98\%&95\%&96\%\\ \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(98-99\%)&(97-98\%)&(90-97\%)&(95-96\%)\\
+\cellcolor{gray!20}&98\%&98\%&94\%&96\%\\ \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(98-99\%)&(97-98\%)&(89-97\%)&(95-96\%)\\
 \hline
 \end{tabular}
 \end{table}
 
 These levels of protection against infection provided by vaccination or previous infection were estimated from the complete set of data. A finer grained analysis of temporal dynamics of immunity waning after a previous infection was then conducted specifically for individuals that were previously infected but remained non-vaccinated. For Omicron, the protection was estimated as 69\% (95\% CI 68-69) for 2-6 months after previous infection,  48\% (95\% CI 46-50) for 7-10 months, 34\% (95\% CI 33-35) for 11-14 months, and 17\% (95\% CI 15-18) for 14 and more months after previous infection. For Delta, on the contrary, these numbers were 93\% (95\% CI 91-94), 91\% (95\% CI 90-92), 86\% (95\% CI 85-86), and 79\% (95\% CI 77-81), respectively.
 
-
-
 \subsection*{Protection against hospitalization}
 
-Qualitatively similar pattern yet quantitatively consistently higher protection is seen against hospitalization (Tables \ref{tabHalone}, \ref{tabHOinteractions} and \ref{tabHDinteractions}), a need for oxygen therapy (Tables \ref{tabOalone}, \ref{tabOOinteractions} and \ref{tabODinteractions}), and a need for intensive care (Tables \ref{tabUalone}, \ref{tabUOinteractions} and \ref{tabUDinteractions}). 
-For example, a recent booster dose provides 87\% protection against hospitalization and 90\% against a need of oxygen therapy for the Omicron variant. Moreover, apart from an older infection and older vaccination, all combinations of previous infection and vaccination present in our data provide $\geq 90\%$ protection against Omicron, most even $\geq 95\%$. 
+Qualitatively similar pattern yet quantitatively consistently higher protection is seen against hospitalization (Tables \ref{tabHalone}), a need for oxygen therapy (Tables \ref{tabOalone}), and a need for intensive care (Tables \ref{tabUalone}). 
+For example, a recent booster dose provides 87\% protection against hospitalization, 90\% against a need of oxygen therapy, and 84\% against a need of intensive care for the Omicron variant. Moreover, all combinations of previous infection and vaccination present in our data appear to provide nearly complete protection against Omicron as regards hospitalization (Tables \ref{tabHOinteractions} and \ref{tabHDinteractions}) as well as against need of oxygen therapy or intensive care (no cases have been observed for such situations).
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \caption{Vaccine effectiveness and protection provided by post-infection immunity {\it against hospitalization}, for the Omicron and Delta variants of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses.}
 \label{tabHalone}
 \centering
@@ -187,49 +188,59 @@ For example, a recent booster dose provides 87\% protection against hospitalizat
 \hline
 \cellcolor{gray!20}Effect ag. {\it Hosp.} & \cellcolor{gray!20} Omicron & \cellcolor{gray!20} Delta \\
 \hline
-Full 2-&45\% (30-58\%)&73\% (66-78\%)\\
-\cellcolor{gray!10}Full 2+&\cellcolor{gray!10}32\% (24-39\%) &\cellcolor{gray!10}78\% (76-79\%)\\
-Booster 2-&87\% (84-89\%)&97\% (97-98\%)\\
-\cellcolor{gray!10}Booster 2+&\cellcolor{gray!10}79\% (75-82\%)&\cellcolor{gray!10}96\% (94-97\%)\\
-Inf 6-&73\% (55-84\%)&100\% (100-100\%)\\
-\cellcolor{gray!10}Inf 6+&\cellcolor{gray!10}66\% (54-75\%) &\cellcolor{gray!10}94\% (91-96\%)\\
+Full 2-&45\% (29-57\%)&75\% (68-80\%)\\
+\cellcolor{gray!10}Full 2+&\cellcolor{gray!10}29\% (21-37\%) &\cellcolor{gray!10}79\% (78-81\%)\\
+Booster 2-&87\% (84-88\%)&98\% (97-98\%)\\
+\cellcolor{gray!10}Booster 2+&\cellcolor{gray!10}79\% (75-83\%)&\cellcolor{gray!10}97\% (95-98\%)\\
+Inf 6-& 
+%73\% (55-84\%)
+87\% (73-94\%)
+&100\% (\nocase)\\
+\cellcolor{gray!10}Inf 6+&\cellcolor{gray!10}
+%66\% (54-75\%) 
+92\% (86-96\%) 
+&\cellcolor{gray!10}95\% (93-96\%)\\
 \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination {\it against hospitalization} for the {\it Omicron} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (99-100\%)  for booster, and 94\% (79-99\%) for full vaccination.}
+\begin{table}[!ht]
+\caption{Protection due to various combinations of past infection preceding vaccination {\it against hospitalization} for the {\it Omicron} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old full vaccination followed by infection in recent 6 months had protection 94\% (78-99\%)}
 \label{tabHOinteractions}
 \centering
 \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
 \hline
  \cellcolor{gray!20}$o$ {\it Hosp}&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
 \hline
-\cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
+\cellcolor{gray!20}& 100\% & 100\% & 72\% & 93\% \\
+\multirow{-2}{*}{\cellcolor{gray!20}Inf 6-}
+&\nocase&\nocase&(0-96\%)&(49-99\%)\\
 \hline
-\cellcolor{gray!20}&95\%&94\%&90\%&75\%\\
-\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(91-97\%)&(78-99\%)&(77-95\%)&(67-81\%)\\
+\cellcolor{gray!20}&98\%&97\%&97\%&90\%\\
+\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(95-99\%)&(80-100\%)&(87-99\%)&(84-94\%)\\
 \hline
 \end{tabular} \\[.5ex]
 \end{table}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination {\it against hospitalization} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 97\% (92-99\%) for full vaccination.}
+\begin{table}[!ht]
+\caption{Protection due to various combinations of past infection preceding vaccination {\it against hospitalization} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\% (\nocase) for full vaccination.}
 \label{tabHDinteractions}
 \centering
 \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
 \hline
 \cellcolor{gray!20}$\delta$ {\it Hosp}&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
 \hline
-\cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
+\cellcolor{gray!20}& 100\% & 100\% & 100\%  & 100\%  \\
+\multirow{-2}{*}{\cellcolor{gray!20}Inf 6-}
+&\nocase&\nocase&\nocase&\nocase\\
 \hline
-\cellcolor{gray!20}& 99\% & 97\%  & 98\%  & 98\%  \\
-\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(98-100\%)&(91-99\%)&(85-100\%)&(98-99\%)\\
+\cellcolor{gray!20}& 100\% & 98\%  & 98\%  & 98\%  \\
+\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(99-100\%)&(95-99\%)&(86-100\%)&(98-99\%)\\
 \hline
 \end{tabular} \\[0.5ex]
 \end{table}
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \caption{Vaccine effectiveness and protection provided by post-infection immunity against hospitalization with a {\it need for oxygen therapy}, for the Omicron and Delta variants of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses.}
 \label{tabOalone}
 \centering
@@ -237,49 +248,49 @@ Inf 6-&73\% (55-84\%)&100\% (100-100\%)\\
 \hline
 \cellcolor{gray!20}Effect ag. $O_2$&\cellcolor{gray!20}Omicron&\cellcolor{gray!20}Delta\\
 \hline
-Full 2-& 57\% (33-72\%) & 81\% (75-86\%)\\
-\cellcolor{gray!10}Full 2+& \cellcolor{gray!10}37\% (25-47\%)&\cellcolor{gray!10}81\% (79-82\%)\\
-Booster 2-&90\% (87-90\%)&98\% (97-98\%)\\
+Full 2-& 57\% (32-72\%) & 82\% (76-87\%)\\
+\cellcolor{gray!10}Full 2+& \cellcolor{gray!10}32\% (20-43\%)&\cellcolor{gray!10}82\% (80-83\%)\\
+Booster 2-&90\% (87-92\%)&98\% (98-98\%)\\
 \cellcolor{gray!10}Booster 2+&\cellcolor{gray!10}85\% (80-88\%)&\cellcolor{gray!10}97\% (95-98\%)\\
-Inf 6-&81\% (40-94\%)&98\% (98-98\%)\\
-\cellcolor{gray!10}Inf 6+&\cellcolor{gray!10}88\% (72-94\%)&\cellcolor{gray!10}96\% (94-98\%)\\
+Inf 6-& 81\% (40-94\%)&100\% (no case)\\
+\cellcolor{gray!10}Inf 6+&\cellcolor{gray!10}88\% (72-94\%)&\cellcolor{gray!10}98\% (95-99\%)\\
 \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a {\it need for oxygen therapy} for the {\it Omicron} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
-\label{tabOOinteractions}
-\centering
-\begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
-\hline
-\cellcolor{gray!20}$o \; O_2$&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
-\hline
-\cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
-\hline
-\cellcolor{gray!20}&98\%&100\%&94\%&86\%\\
-\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(93-99\%)&(100-100\%)&(76-98\%)&(75-92\%)\\
-\hline
-\end{tabular} \\[0.5ex]
-\end{table}
+% \begin{table}[!ht]
+% \caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a {\it need for oxygen therapy} for the {\it Omicron} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
+% \label{tabOOinteractions}
+% \centering
+% \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
+% \hline
+% \cellcolor{gray!20}$o \; O_2$&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
+% \hline
+% \cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
+% \hline
+% \cellcolor{gray!20}&98\%&100\%&94\%&86\%\\
+% \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(93-99\%)&(100-100\%)&(76-98\%)&(75-92\%)\\
+% \hline
+% \end{tabular} \\[0.5ex]
+% \end{table}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a {\it need for oxygen therapy} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
-\label{tabODinteractions}
-\centering
-\begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
-\hline
-\cellcolor{gray!20}$\delta \; O_2$&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
-\hline
-\cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
-\hline
-\cellcolor{gray!20}&99\%&97\%&100\%&99\%\\
-\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(98-100\%)&(90-99\%)&(100-100\%)&(98-99\%)\\
-\hline
-\end{tabular} \\[0.5ex]
-\end{table}
+% \begin{table}[!ht]
+% \caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a {\it need for oxygen therapy} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
+% \label{tabODinteractions}
+% \centering
+% \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
+% \hline
+% \cellcolor{gray!20}$\delta \; O_2$&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
+% \hline
+% \cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
+% \hline
+% \cellcolor{gray!20}&99\%&97\%&100\%&99\%\\
+% \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(98-100\%)&(90-99\%)&(100-100\%)&(98-99\%)\\
+% \hline
+% \end{tabular} \\[0.5ex]
+% \end{table}
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \caption{Vaccine effectiveness and protection provided by post-infection immunity against hospitalization with a need for {\it intensive care}, for the Omicron and Delta variants of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses.}
 \label{tabUalone}
 \centering
@@ -288,46 +299,46 @@ Inf 6-&81\% (40-94\%)&98\% (98-98\%)\\
 \cellcolor{gray!20}Effect ag. {\it ICU}&\cellcolor{gray!20}Omicron&\cellcolor{gray!20}Delta\\
 \hline
 Full 2-&58\% (3-82\%)&84\% (72-91\%)\\
-\cellcolor{gray!10}Full 2+&\cellcolor{gray!10}40\% (17-57\%)&\cellcolor{gray!10}86\% (84-88\%)\\
-Booster 2-&84\% (75-89\%)&98\% (97-99\%)\\
-\cellcolor{gray!10}Booster 2+&\cellcolor{gray!10}61\% (38-75\%)&\cellcolor{gray!10}99\% (98-99\%)\\
-Inf 6-&82\% (0-97\%)&100\% (100-100\%)\\
-\cellcolor{gray!10}Inf 6+&\cellcolor{gray!10}79\% (35-93\%)&\cellcolor{gray!10}98\% (92-99\%)\\
+\cellcolor{gray!10}Full 2+&\cellcolor{gray!10}37\% (12-55\%)&\cellcolor{gray!10}86\% (83-88\%)\\
+Booster 2-&83\% (75-89\%)&98\% (97-99\%)\\
+\cellcolor{gray!10}Booster 2+&\cellcolor{gray!10}60\% (37-74\%)&\cellcolor{gray!10}97\% (92-99\%)\\
+Inf 6-&83\% (0-98\%)&100\% (no case)\\
+\cellcolor{gray!10}Inf 6+&\cellcolor{gray!10}66\% (15-86\%)&\cellcolor{gray!10}97\% (90-99\%)\\
 \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a need for {\it intensive care} for the {\it Omicron} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
-\label{tabUOinteractions}
-\centering
-\begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
-\hline
-\cellcolor{gray!20}$o$ {\it ICU}&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
-\hline
-\cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
-\hline
-\cellcolor{gray!20}&100\%&100\%&100\%&100\%\\
-\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(100-100\%)&(100-100\%)&(100-100\%)&(100-100\%)\\
-\hline
-\end{tabular} \\[0.5ex]
-\end{table}
+% \begin{table}[!ht]
+% \caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a need for {\it intensive care} for the {\it Omicron} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
+% \label{tabUOinteractions}
+% \centering
+% \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
+% \hline
+% \cellcolor{gray!20}$o$ {\it ICU}&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
+% \hline
+% \cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
+% \hline
+% \cellcolor{gray!20}&100\%&100\%&100\%&100\%\\
+% \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(100-100\%)&(100-100\%)&(100-100\%)&(100-100\%)\\
+% \hline
+% \end{tabular} \\[0.5ex]
+% \end{table}
 
-\begin{table}[!h]
-\caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a need for {\it intensive care} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
-\label{tabUDinteractions}
-\centering
-\begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
-\hline
-\cellcolor{gray!20}$\delta$ {\it ICU}&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
-\hline
-\cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
-\hline
-\cellcolor{gray!20}& 100\% & 100\%  & 100\%  & 100\%\\
-\multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(100-100\%)&(100-100\%)&(100-100\%)&(97-100\%)\\
-\hline
-\end{tabular} \\[0.5ex]
-\end{table}
+% \begin{table}[!ht]
+% \caption{Protection due to various combinations of past infection preceding vaccination against hospitalization with a need for {\it intensive care} for the {\it Delta} variant of the SARS-CoV-2 virus, 95\% confidence intervals (CI) in parentheses. The inverse immunisation order: more than 2 months old vaccination followed by infection in recent 6 months had protection 100\%  (100-100\%)  for booster, and 100\%  (100-100\%) for full vaccination.}
+% \label{tabUDinteractions}
+% \centering
+% \begin{tabular}{|C{.1\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|C{.16\linewidth}|}
+% \hline
+% \cellcolor{gray!20}$\delta$ {\it ICU}&\cellcolor{gray!20}Booster 2-&\cellcolor{gray!20}Full 2-&\cellcolor{gray!20}Booster 2+&\cellcolor{gray!20}Full 2+\\
+% \hline
+% \cellcolor{gray!20}Inf 6-& $-$ & $-$ & $-$ & $-$ \\
+% \hline
+% \cellcolor{gray!20}& 100\% & 100\%  & 100\%  & 100\%\\
+% \multirow{-2}{*}{\cellcolor{gray!20}Inf 6+}&(100-100\%)&(100-100\%)&(100-100\%)&(97-100\%)\\
+% \hline
+% \end{tabular} \\[0.5ex]
+% \end{table}
 
 \subsection*{Risk of a severe outcome for Omicron vs. Delta}
 
@@ -356,7 +367,7 @@ We are aware of the complicated interpretation of the hospitalization data for t
 
 Compared to the Delta variant, the protection provided by the post-infection or post-vaccination immunity is lower for the Omicron variant but at the same time the Omicron variant appears less severe than the Delta variant and the odds ratio for oxygen therapy or ICU admission are both approximately about one quarter compared to the Delta variant.
 
-A common limitation of studies like ours is the fact that only a certain portion of infections is reported (ascertainment ratio).  We believe this phenomenon does not affect significantly our estimates of vaccine effectiveness, assuming that the ascertainment ratio is the same for the vaccinated and the unvaccinated alike and we have no evidence to the contrary. The same fact may distort our estimates of the protection by the post-infection immunity; in particular, as there are possibly hidden individuals with post-infection immunity in the control group, the infection risk of a virgin population is possibly underestimated and, consequently, the protection by infection is underestimated, too. Regardless of this, our results may be interpreted in terms of reported infections rather than the actual ones. 
+A common limitation of studies like ours is the fact that only a certain portion of infections is reported (ascertainment rate).  We believe this phenomenon does not affect significantly our estimates of vaccine effectiveness, assuming that the ascertainment rate is the same for the vaccinated and the unvaccinated alike and we have no evidence to the contrary. A difference in the ascertainment rate could also distort our estimates of the protection by the post-infection immunity; in particular, if there were undetected individuals with post-infection immunity in the control group, the infection risk of the population would be underestimated and, consequently, the protection by infection underestimated as well. Our results should be interpreted in terms of reported infections only. 
 
 \acknow{%{\bf Data sharing.} 
 Data reported in this study and used for the analyses are not public. De-identified individual-level data are available to the scientific community. Requests should be submitted to the Institute of Health Information and Statistics of the Czech Republic  ({\tt www.uzis.cz/index-en.php}), together with a short description of their analysis proposals, where they will be assessed based on relevance and scientific merit.

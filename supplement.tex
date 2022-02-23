@@ -35,7 +35,7 @@
 %%            country={}}
 %% \fntext[label3]{}
 
-\title{Supplementary material:\\
+\title{Supplementary material 1:\\
 Protection provided by covid-19 vaccines and previous infection against the Omicron variant}
 
 %% use optional labels to link authors explicitly to addresses:
@@ -110,7 +110,7 @@ The {\tt Immunity} categorical covariate can take the following values:
 \item[{\tt {\em X}\_{\em Y}}] which means that the condition $X$ happened, being followed by condition $Y$ in time. 
 \end{description}
 
-The conditions could be:
+The conditions {\tt {\m X}} and {\tt {\m Y}}  could be:
 \begin{description}
 \item[{\tt part}] partially vaccinated (from 14 days of the dose application)
 \item[{\tt full2-}] fully vaccinated no earlier than two months ago (from 14 days to $14+61-1=74$ days after the dose application)
@@ -126,8 +126,8 @@ When separately estimating the post-infection immunity we consider the infection
 \begin{description}
 \item[{\tt \_noinf}] no previous infection
 \item[{\tt inf1}] 60--180 days after the last confirmed infection (the re-infection cannot happen during the first 60 days by definition)
-\item[{\tt inf2}] 181--301 days 
-\item[{\tt inf3}] 302--422 days 
+\item[{\tt inf2}] 181--301 days after the last confirmed infection
+\item[{\tt inf3}] 302--422 days after the last confirmed infection
 \item[{\tt inf4+}] any later.
 \end{description}
 
@@ -146,14 +146,7 @@ The {\tt VaccStatus} is either {\tt \_novacc} (not vaccintaed) or takes the form
 \end{description}
 \end{description}
 
-The {\tt InfPrior} covariate is either: 
-\begin{description}
-\item[{\tt \_noinf}] no previous infection
-\item[{\tt inf1}] 60--180 days after the last confirmed infection (the re-infection cannot happen during the first 60 days by definition)
-\item[{\tt inf2}] 181--301 days 
-\item[{\tt inf3}] 302--422 days 
-\item[{\tt inf4+}] any later.
-\end{description}
+The {\tt InfPrior} covariate is as above.
 
 \bigskip
 
@@ -192,15 +185,15 @@ In theses analyses, the binary outcomes {\tt Hosp, Oxygen, ICU} corresponding to
 Analysis & Outcome & Covariates \\ 
 \hline
 Hospitalizations given infection & Hosp & 
-Immunity, Sex, AgeGr \\
+Variant, Immunity, Sex, AgeGr \\
 Oxygen given infection & Oxygen & 
-Immunity, Sex, AgeGr \\
-ICU given infection & Oxygen & 
-Immunity, Sex, AgeGr \\
+Variant, Immunity, Sex, AgeGr \\
+ICU given infection & ICU & 
+Variant, Immunity, Sex, AgeGr \\
 Oxygen given hospitalization & Oxygen & 
-Immunity, Sex, AgeGr \\
-ICU given hospitalization& Oxygen & 
-Immunity, Sex, AgeGr \\
+Variant, Immunity, Sex, AgeGr \\
+ICU given hospitalization& ICU & 
+Variant, Immunity, Sex, AgeGr \\
 \hline
 \end{tabular}
 \label{tab:lrs}
@@ -208,10 +201,10 @@ Immunity, Sex, AgeGr \\
 
 \section*{Software implementation}
 
-The ({\tt coxph} function from {\tt survival} {\tt R} package) was used for the Cox regression, the ({\tt glm} function from {\tt stats} {\tt R} package) for the Logistic regression. The original software package was used to transform the source data to the input of the packages. The source code with example (unreal) data can be retrieved from \url{https://github.com/bisop-repo/omicronprotection}.
+The {\tt coxph} function from {\tt survival} {\tt R} package was used for the Cox regression, the ({\tt glm} function from {\tt stats} {\tt R} package) for the Logistic regression. The original software package was used to transform the source data to the input of the functions. The source code with example (unreal) data can be retrieved from \url{https://github.com/bisop-repo/omicronprotection}.
 
 
-\clearpage
+%\clearpage
 %\newpage
 
 %\noindent

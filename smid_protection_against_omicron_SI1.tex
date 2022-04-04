@@ -1,11 +1,11 @@
-
-\documentclass[9pt,onecolumn,twoside,lineno]{pnas-new}
+\documentclass[9pt,onecolumn,twoside,lineno]{article}
 \usepackage{amssymb}
 \usepackage{xcolor}
 \usepackage{rotating}
+\usepackage{url}
 %\usepackage{adjustbox}
 %\usepackage[graphicx]{realboxes}
-
+\def\m{\em}
 
 \begin{document}
 
@@ -94,7 +94,7 @@ Time is measured in days and we take the day before our study period (Dec 7th, 2
 \item The subject is infected (except for the Infection analysis)
 \item The subject is infected by some other variant or the infection is not discriminated (in the Infection analysis)
 \item The subject is reported to die
-\item The subject is reported to obtain booster by Astra or Janssen
+\item The subject is reported to obtain booster by Astra or Johnson
 \item The subject gets a vaccine (only in the reinfection analysis)
 \end{itemize}
 
@@ -136,7 +136,7 @@ When separately estimating the post-infection immunity we consider the infection
 Here, the outcomes include {\tt VariantInf} (possibly repeated),  {\tt VariantHosp} or {\tt VariantOxygen}. The time-varying covariates include  {\tt VaccStatus} and {\tt InfPrior}.
 The {\tt VaccStatus} is either {\tt \_novacc} (not vaccintaed) or takes the form {\tt \em VSP} where
 \begin{description}
-\item[{\tt \em V}] denotes the vaccine (P-fizer, M-oderna, A-stra, J-anssen),
+\item[{\tt \em V}] denotes the vaccine (P-fizer, M-oderna, A-stra, J-\&J),
 \item[{\tt \em S}] denotes the state of vaccination (part - partial, full - full, boost - booster)
 \item[{\tt \em P}] denotes the time distance from the last vaccination
 \begin{description}
@@ -262,7 +262,7 @@ Errors & No age & 9929 & No sex & 481s \\
 \hline
 Age & \multicolumn{5}{c|}{Completed vaccination} & 
 \multicolumn{5}{c}{Booster doses} \\
-group & Comirnaty & Spikevax & Vaxzevria & Janssen & Total
+group & Pfizer & Moderna & Astra & J\& J & Total
 & Comirnaty & Spikevax & Vaxzevria & Janssen & Total \\ \hline
 0-11&38353&55&3&11&38422&175&2&0&0&177\\
 12-15&195722&4167&2&2&199893&16844&143&0&0&16987\\

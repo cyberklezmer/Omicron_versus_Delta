@@ -28,7 +28,7 @@
 
 
 
-%\newcommand{\inputtable}[1]{\input{#1} }
+\newcommand{\inputtable}[1]{\input{#1} }
 
 %\def\figdiscrim{\ref{fig:discrim}}
 %\def\figIalone{\ref{figIalone}}
@@ -38,7 +38,7 @@
 %\def\tabOalone{\ref{tabOalone}}
 %\def\tabUalone{\ref{tabUalone}}
 
-\def\jid{1}
+\def\jid{0}
 \newcommand{\inputtable}[1]{}
 
 \def\figdiscrim{1}
@@ -51,7 +51,7 @@
 
 
 \def\nocase{no case}
-
+\newcommand{\new}[1]{\textcolor{red}{#1}}  
 
 \begin{document}
 \doublespacing
@@ -145,7 +145,7 @@ Protection\, (\mbox{VE}) = 1 -  \frac{\mathrm{Hazard_{protected}}}{\mathrm{Hazar
 
 Further we examine the post-infection immunity by estimating hazard ratios of infection of previously unvaccinated individual in relation to time elapsed from the infection. By using calendar time we were able automatically to incorporate the changing conditions of the epidemic, including non-pharmacological measures, seasonal effects, the ratio of discriminated samples, and the proportion of the virus variant, as all of these phenomena can be included in the underlying baseline hazard function. 
 
-To examine the probabilities of hospitalization, oxygen therapy and ICU admission for an infected individual we use the logistic regression with the event of interest as the outcome and with the immunity status at the time of infection, age group and sex as the covariates. By means of the dummy corresponding to the virus variant we compare the probabilities of the outcome for both the variants. %To estimate the amount of protection provided by the vaccination and/or past infection we run the logistic regression separately for infections by the two variants. %(ale nevím, jestli to Luděk nakonec použije)
+To examine the probabilities of hospitalization, oxygen therapy and ICU admission for an infected individual we use the logistic regression with the event of interest as the outcome and with the immunity status at the time of infection, age group and sex as the covariates. By means of the dummy corresponding to the virus variant we compare the probabilities of the outcome for both the variants.
 
  
 All calculations were performed using the R software. The algorithm used to transform data from the database into the package command inputs was coded in C++. See Supplementary material 1 for details. 
@@ -158,7 +158,7 @@ All calculations were performed using the R software. The algorithm used to tran
 % full vaccination 
 \subsection*{Protection against infection}
 
-First we looked at the protection conferred by vaccination or a previous infection against a new infection, since the protection against infection represents the potential to protect others at risk in the population. For vaccination and the Omicron variant the protection reached 43\% (95\% CI 42-44) shortly after completing the full vaccination scheme, falling to 9\% (95\% CI 8-10) after more than two months. This protection increased to 56\% (95\% CI 55-56) shortly after receiving a booster dose, followed by a decline to 21\% (95\% CI 19-23) after more than two months. These numbers strongly contrast with the protection against the Delta variant, which was consistently higher at 73\% (95\% CI 72-74), 57\% (95\% CI 56-58), 90\% (95\% CI 90-91) and 82\% (95\% CI 79-84), respectively. Similar degrees of protection against infection are conferred also by the post-infection immunity: 68\% (95\% CI 68-69) shortly after infection (2-6 months, a positive test during the first two months after an infection is not considered a reinfection by definition) and 13\% (95\% CI 11-14) after six months for Omicron, versus 95\% (95\% CI 94-96) shortly after infection and 83\% (95\% CI 82-84) after six months for Delta (Figure \figIalone). Based on the past prevalence of viral variants it can be expected that the infections older than 6 months were mostly due to the original Wuhan, D614G and Alpha variants, while the more recent ones were predominantly due to Delta. As we show in the Supplementary material 2, Sections 11 and 12, explicit accounting for the vaccine type (BNT162b2 by Pfizer/BioNTech and mRNA-201273 by Moderna) gave values of effectiveness comparable with the analyses of pooled data reported here in the main text.   
+First we looked at the protection conferred by vaccination or a previous infection against a new infection, since the protection against infection represents the potential to protect others at risk in the population. The protection after vaccination \new{against} the Omicron variant reached 43\% (95\% CI 42-44) shortly after completing the full vaccination scheme, falling to 9\% (95\% CI 8-10) after more than two months. This protection increased to 56\% (95\% CI 55-56) shortly after receiving a booster dose, followed by a decline to 21\% (95\% CI 19-23) after more than two months. These numbers strongly contrast with the protection against the Delta variant, which was consistently higher at 73\% (95\% CI 72-74), 57\% (95\% CI 56-58), 90\% (95\% CI 90-91) and 82\% (95\% CI 79-84), respectively. Similar degrees of protection against infection are conferred also by post-infection immunity: 68\% (95\% CI 68-69) shortly after a previous infection (2-6 months, a positive test during the first two months after an infection is not considered a reinfection by definition) and 13\% (95\% CI 11-14) after six months for Omicron, versus 95\% (95\% CI 94-96) shortly after infection and 83\% (95\% CI 82-84) after six months for Delta (Figure \figIalone). Based on the past prevalence of viral variants it can be expected that the infections older than 6 months were mostly due to the original Wuhan, D614G and Alpha variants, while the more recent ones were predominantly due to Delta. As we show in the Supplementary material 2, Sections 11 and 12, explicit accounting for the vaccine type (BNT162b2 by Pfizer/BioNTech and mRNA-201273 by Moderna) gave values of effectiveness comparable with the analyses of pooled data reported here in the main text.   
 
 \ifthenelse{\jid=1}{}{
 \begin{figure}[h]
@@ -168,17 +168,17 @@ First we looked at the protection conferred by vaccination or a previous infecti
 \label{figIalone}
 \end{figure}
 }
-We had enough data to examine all the combinations in which a previous infection preceded vaccination. As expected, protection declined with time elapsed from the previous infection or vaccination (Table \tabIinteractions). For the Delta variant, any combination provided $\geq 95\%$ protection against infection (Table \tabIinteractions). This protection remained quite high also for Omicron when the previous infection was recent, falling to lower values for an older previous infection, but even then the protection was significantly higher than for a vaccination or previous infection alone (Table \tabIinteractions). We also analysed cases, where a vaccination preceded a previous infection, and conclude that when the protection is high (against Delta) then the order of events does not matter (see description of Tab. \tabIinteractions). However, when protection is lower (against Omicron), the situation when a previous infection followed a vaccination appeared to provide a higher protection than the inverse sequence (see the caption of Tab. \tabIinteractions). The protection provided by Full 2+/Inf 6- combination was 89\% (95\% CI 88-91) as compared to 86\% (95\% CI 85-88) for Inf 6-/Full 2+.
+We had enough data to examine all the combinations in which a previous infection preceded vaccination. As expected, protection declined with time elapsed from the previous infection or vaccination (Table \tabIinteractions). Regarding protection \new{against} the Delta variant, any combination provided $\geq 95\%$ protection against infection (Table \tabIinteractions). This protection remained quite high also against Omicron when the previous infection was recent, falling to lower values for an older previous infection, but even then the protection was significantly higher than provided by a vaccination or previous infection alone (Table \tabIinteractions). \new{We also analysed cases when a vaccination preceded a previous infection. Regarding Delta for which the protection is generally high, the corresponding value is 96\% (90-98\%) and the order of events thus does not matter. However, for Omicron for which protection is generally lower, the case when a previous infection followed a vaccination appeared to provide a higher protection than the inverse sequence: protection provided by the Full 2+/Inf 6$-$ combination was 89\% (95\% CI 88-91) as compared to 86\% (95\% CI 85-88) for the Inf 6$-$/Full 2+ one.}
 
 \inputtable{smid_protection_against_omicron_tab1.inc}
 
 % These levels of protection against infection provided by vaccination or previous infection were estimated from the complete set of data. 
-A finer grained analysis of temporal dynamics of immunity waning after a previous infection was then conducted specifically for individuals that were previously infected but remained non-vaccinated. For Omicron, the protection was estimated as 69\% (95\% CI 68-69) for 2-6 months after previous infection,  48\% (95\% CI 46-50) for 7-10 months, 34\% (95\% CI 33-35) for 11-14 months, and 17\% (95\% CI 15-18) for 14 and more months after previous infection. For Delta, on the contrary, these numbers were 93\% (95\% CI 91-94), 91\% (95\% CI 90-92), 86\% (95\% CI 85-86), and 79\% (95\% CI 77-81), respectively.
+A finer grained analysis of temporal dynamics of immunity waning after a previous infection was then conducted specifically for individuals that were previously infected but remained non-vaccinated. \new{Against} Omicron, the protection was estimated as 69\% (95\% CI 68-69) for 2-6 months after previous infection,  48\% (95\% CI 46-50) for 7-10 months, 34\% (95\% CI 33-35) for 11-14 months, and 17\% (95\% CI 15-18) for 14 and more months after previous infection. For Delta, on the contrary, these numbers were 93\% (95\% CI 91-94), 91\% (95\% CI 90-92), 86\% (95\% CI 85-86), and 79\% (95\% CI 77-81), respectively.
 
 \subsection*{Protection against hospitalization}
 
 Qualitatively similar pattern yet quantitatively consistently higher protection is seen against hospitalization (Tables \tabHalone), a need for oxygen therapy (Tables \tabOalone), and a need for intensive care (Tables \tabUalone). 
-For example, a recent booster dose provides 86\% protection against hospitalization, 90\% against a need of oxygen therapy, and 83\% against a need of intensive care for the Omicron variant. Moreover, all combinations of previous infection and vaccination present in our data appear to provide nearly complete protection against Omicron as regards hospitalization (Table \tabHinteractions) as well as against need of oxygen therapy or intensive care (often no cases have been observed for such situations, see Supplementary material 2, Sec. 7--10).
+For example, a recent booster dose provides 86\% protection against hospitalization, 90\% against a need of oxygen therapy, and 83\% against a need of intensive care \new{when infected by} the Omicron variant. Moreover, all combinations of previous infection and vaccination present in our data appear to provide nearly complete protection against Omicron as regards hospitalization (Table \tabHinteractions) as well as against need of oxygen therapy or intensive care (often no cases have been observed for such situations, see Supplementary material 2, Sec. 7--10).
 
 \inputtable{smid_protection_against_omicron_tab2.inc}
 
@@ -264,11 +264,11 @@ Our data support the existing evidence that the Omicron variant of SARS-CoV-2 ev
 
 We are aware of the complicated interpretation of the hospitalization data for the Omicron wave, as the very high basic reproduction number $R_0$ of this variant \cite{nishiura2022relative} translated into the very high prevalence of infection in the population at the peak of the epidemic wave and a much higher proportion of hospitalized patients with covid-19 as a concomitant finding rather than the reason for admission. We therefore analysed separately the need for oxygen therapy and ICU admission as a more relevant measure of severe outcomes due to the Omicron infection.
 
-Compared to the Delta variant, the protection provided by the post-infection or post-vaccination immunity is lower for the Omicron variant but at the same time the Omicron variant appears less severe than the Delta variant and the odds ratio for oxygen therapy or ICU admission are both approximately about one quarter compared to the Delta variant.
+Compared to the Delta variant, the protection provided by the post-infection or post-vaccination immunity is lower \new{against} the Omicron variant but at the same time the Omicron variant appears less severe than the Delta variant and the odds ratio for oxygen therapy or ICU admission are both approximately about one quarter compared to the Delta variant.
 
 A common limitation of studies like ours is the fact that only a certain portion of infections is reported (ascertainment rate).  We believe this phenomenon does not affect significantly our estimates of vaccine effectiveness, assuming that the ascertainment rate is the same for the vaccinated and the unvaccinated alike and we have no evidence to the contrary. A potentially low ascertainment rate could also distort our estimates of the protection by the post-infection immunity; in particular, if there were many undetected individuals with post-infection immunity in the control group, the infection risk of the virgin population would be underestimated and, consequently, the protection by infection underestimated as well. Our results should be interpreted in terms of reported infections only. 
 
-
+\new{We used age and sex as control variables in all our analyses; however, with some caution, they can be as risk factors, too. First of all, the results generally confirm  common knowledge that the risk of various several outcomes grows exponentially with the age -- this is clearly illustrated by the linear increase of log-hazard ratios for both the variants (see Supplementary material 2, Sec. 5--19). The age-related risk of (re-)infection, on the other hand, appears to be for children and the productive age categories. This patter is more stressed for the Omicron variant; however, it is not clear to what extent the pattern is caused by behavioral causes and/or current epidemic situation.}
 
 
 \subsection*{Notes}

@@ -85,7 +85,7 @@ As the source dataset consists only of those who were tested positive and/or wer
 
 For the analyses of vaccine effectiveness and immunity protection, made separately for both the Omicron and Delta variant, we use the Cox proportional hazards model with time-varying covariates. 
 
-The input of the model consists of one or more records for each subject. Each record corresponds to a time interval from time {\tt T1} to {\tt T2}, in which the covariates are constant and in the interior of which none of the outcomes happened. Each record contains indicators of outcomes {\tt VariantInf, VariantHosp, VariantOxygen, VariantICU, DeadByCov, DeadByOther}, happening at $T2$ and the value of the covariates, valid in $[T1,T2)$.
+The input of the model consists of one or more records for each subject. Each record corresponds to a time interval from time {\tt T1} to {\tt T2}, in which the covariates are constant and in the interior of which none of the outcomes happened. Each record contains indicators of outcomes {\tt VariantInf, VariantHosp, Variant\-Oxygen, VariantICU, DeadByCov, DeadByOther}, happening at $T2$ and the value of the covariates, valid in $[T1,T2)$.
 Undiscriminated infections and infections by other variants lead to withdrawal from the study (right censoring). 
 Deaths of covid ({\tt DeadByCov}) or of other reasons ({\tt DeadByOther}) lead to right censoring at the time of the event as well. Fixed (non-time-dependent) covariates include sex ({\tt Sex}) and age category ({\tt AgeGr}). 
 
